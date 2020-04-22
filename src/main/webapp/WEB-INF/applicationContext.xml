@@ -42,16 +42,16 @@
 		<!-- packages to scan for Entity Classes annotated Classes package -->
 		<property name="annotatedClasses">
 			<list>
-				<value>com.model.Product</value>
-				<value>com.model.Authorities</value>
-				<value>com.model.BillingAddress</value>
-				<value>com.model.Cart</value>
-				<value>com.model.CartItem</value>
-				<value>com.model.Customer</value>
-				<value>com.model.CustomerOrder</value>
-				<value>com.model.ShippingAddress</value>
-				<value>com.model.User</value>
-				<value>com.model.Queries</value>
+				<value>com.tyss.ecart.model.Product</value>
+				<value>com.tyss.ecart.model.Authorities</value>
+				<value>com.tyss.ecart.model.BillingAddress</value>
+				<value>com.tyss.ecart.model.Cart</value>
+				<value>com.tyss.ecart.model.CartItem</value>
+				<value>com.tyss.ecart.model.Customer</value>
+				<value>com.tyss.ecart.model.CustomerOrder</value>
+				<value>com.tyss.ecart.model.ShippingAddress</value>
+				<value>com.tyss.ecart.model.User</value>
+				<value>com.tyss.ecart.model.Queries</value>
 			</list>
 		</property>
 
@@ -85,14 +85,15 @@
 			username-parameter="j_username"
 			password-parameter="j_password"
 			authentication-failure-url="/login?error"
-			default-target-url="/index1" />
+			default-target-url="/index1"
+			authentication-success-forward-url="/getAllProducts" />
 		<security:logout logout-url="/logout" delete-cookies="JSESSIONID" logout-success-url="/login?logout" />
 		<security:csrf disabled="true"/>
 	</security:http>
 
 	<security:authentication-manager>
 		<security:authentication-provider>
-			 <!-- <security:user-service>
+			<!-- <security:user-service>
 			<security:user name="mg.giridhar@gmail.com" password="12345"
 			authorities="ROLE_USER" />
 			<security:user name="rohit.j@gmail.com" password="54321"
@@ -104,7 +105,7 @@
 				authorities-by-username-query="SELECT 
 				emailId,authorities FROM authorities WHERE emailId =?"
 				users-by-username-query="SELECT 
-				emailId, password, enabled FROM users WHERE emailId=? " />
+				emailId, password, enabled FROM users WHERE emailId=?" />
 				
 		</security:authentication-provider>
 
